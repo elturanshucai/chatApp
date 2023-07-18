@@ -1,0 +1,88 @@
+.register {
+    background-color: #8db9ca;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .formContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: white;
+        width: 400px;
+        height: fit-content;
+        border-radius: 10px;
+        color: #00205b;
+        padding: 0 50px;
+
+        .formTop {
+            display: flex;
+            flex-direction: column;
+
+            p {
+                text-align: center;
+            }
+
+            .appName {
+                font-size: 24px;
+                margin: 10px 0;
+                font-weight: 700;
+            }
+
+            .pageName {
+                font-weight: 300;
+                margin-bottom: 10px;
+            }
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            input {
+                border: none;
+                color: #6d6e70;
+                padding: 5px 0;
+                outline: none;
+                border-bottom: 2px solid #caccd1;
+            }
+
+            label {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+
+                img {
+                    width: 20px;
+                    height: 20px;
+                    object-fit: cover;
+                    margin-right: 10px;
+                }
+
+
+                .imageInput {
+                    border: none;
+                    display: none;
+                }
+            }
+
+            button {
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 10px 0;
+                color: white;
+                background-color: #6a67ce;
+            }
+
+        }
+
+        p {
+            text-align: center;
+            margin: 10px 0;
+        }
+    }
+}
