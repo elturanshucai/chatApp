@@ -1,7 +1,18 @@
-import React from 'react'
+import { AddPhotoAlternateOutlined, AttachFileOutlined } from '@material-ui/icons'
+import './input.scss'
 
 export default function Input() {
   return (
-    <div>Input</div>
+    <div className='inputDiv'>
+      <input type="text" placeholder='Mesaj yazın..' />
+      <div className="send">
+        <AttachFileOutlined />
+        <input type="file" style={{ display: "none" }} id='file' />
+        <label htmlFor="file">
+          <AddPhotoAlternateOutlined />
+        </label>
+        <button>Send</button>
+      </div>
+    </div>
   )
 }
