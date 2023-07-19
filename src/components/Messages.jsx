@@ -1,5 +1,4 @@
-import Message from '../message/Message'
-import './messages.scss'
+import Message from './Message'
 
 export default function Messages() {
   return (

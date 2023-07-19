@@ -1,7 +1,6 @@
 import { MoreHoriz, PersonAdd, VideoCall } from '@material-ui/icons'
-import './chat.scss'
-import Messages from '../messages/Messages'
-import Input from '../input/Input'
+import Messages from './Messages'
+import Input from './Input'
 
 export default function Chat() {
   return (

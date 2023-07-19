@@ -1,5 +1,4 @@
 import { AddPhotoAlternateOutlined, AttachFileOutlined } from '@material-ui/icons'
-import './input.scss'
 
 export default function Input() {
   return (
