@@ -6,7 +6,7 @@
 }
 
 @mixin mobile {
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 600px) {
     @content
   }
 }
@@ -18,8 +18,22 @@
 }
 
 @mixin laptop {
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: 1440px) {
     @content
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #caccd1;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: #a5a5a5;
   }
 }
 
@@ -38,8 +52,16 @@
     display: flex;
     overflow: hidden;
 
+    @include laptop {
+      width: 80%;
+    }
+
     @include tablet {
       width: 90%;
+    }
+
+    @include mobile {
+      width: 95%;
     }
   }
 }
@@ -207,7 +229,16 @@
   flex: 1;
   background-color: #3e3c61;
   overflow-y: scroll;
+  overflow-x: hidden;
   position: relative;
+
+  @include tablet {
+    width: 30%;
+  }
+
+  @include mobile {
+    width: 35%;
+  }
 }
 
 .navbar {
@@ -220,6 +251,11 @@
   color: #ddddf7;
   position: sticky;
   top: 0;
+  width: 100%;
+
+  @include mobile {
+    padding: 5px;
+  }
 
 
   .logo {
@@ -234,12 +270,22 @@
     display: flex;
     gap: 10px;
 
+    @include mobile {
+      gap: 5px;
+      font-size: 12px;
+    }
+
     img {
       background-color: #ddddf7;
       width: 24px;
       height: 24px;
       border-radius: 50%;
       object-fit: cover;
+
+      @include mobile {
+        width: 18px;
+        height: 18px;
+      }
     }
 
     button {
@@ -261,11 +307,19 @@
   .searchForm {
     padding: 10px;
 
+    @include mobile {
+      padding: 5px;
+    }
+
     input {
       outline: none;
       background-color: transparent;
       border: none;
       color: white;
+
+      @include mobile {
+        font-size: 12px;
+      }
 
       &::placeholder {
         color: lightgray;
@@ -282,6 +336,12 @@
   color: white;
   cursor: pointer;
 
+  @include mobile {
+    gap: 5px;
+    padding: 5px;
+    font-size: 12px;
+  }
+
   &:hover {
     background-color: #2f2d52;
   }
@@ -291,6 +351,16 @@
     height: 50px;
     border-radius: 50%;
     object-fit: cover;
+
+    @include tablet {
+      width: 36px;
+      height: 36px;
+    }
+
+    @include mobile {
+      width: 24px;
+      height: 24px;
+    }
   }
 }
 
@@ -300,12 +370,24 @@
       span {
         font-size: 18px;
         font-weight: 700;
+
+        @include tablet {
+          font-size: 14px;
+        }
+
+        @include mobile {
+          font-size: 12px;
+        }
       }
 
       p {
         font-size: 14px;
         color: lightgray;
         font-weight: 300;
+
+        @include mobile {
+          font-size: 12px;
+        }
       }
     }
   }
@@ -313,6 +395,14 @@
 
 .chat {
   flex: 2;
+
+  @include tablet {
+    width: 70%;
+  }
+
+  @include mobile {
+    width: 65%;
+  }
 
   .chatInfo {
     display: flex;
@@ -355,6 +445,16 @@
   gap: 20px;
   margin-bottom: 20px;
 
+  @include tablet {
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  @include mobile {
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
   .messageInfo {
     display: flex;
     flex-direction: column;
@@ -362,11 +462,25 @@
     font-weight: 300;
     font-size: 14px;
 
+    @include mobile {
+      font-size: 12px;
+    }
+
     img {
       width: 40px;
       height: 40px;
       border-radius: 50%;
       object-fit: cover;
+
+      @include tablet {
+        width: 30px;
+        height: 30px;
+      }
+
+      @include mobile {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 
@@ -376,17 +490,51 @@
     flex-direction: column;
     gap: 10px;
 
+    @include tablet {
+      max-width: 70%;
+    }
+
+    @include mobile {
+      max-width: 60%;
+      gap: 5px;
+    }
+
     p {
       background-color: white;
       padding: 10px 20px;
       border-radius: 0 10px 10px 10px;
       width: max-content;
+
+      @include tablet {
+        padding: 6px 12px;
+        font-size: 14px;
+      }
+
+      @include mobile {
+        padding: 4px 8px;
+        font-size: 12px;
+      }
     }
 
     img {
       width: 300px;
       height: 200px;
       object-fit: cover;
+
+      @include laptop {
+        width: 350px;
+        height: 200px;
+      }
+
+      @include tablet {
+        width: 220px;
+        height: 150px;
+      }
+
+      @include mobile {
+        width: 150px;
+        height: 100px;
+      }
     }
   }
 
@@ -415,12 +563,20 @@
   justify-content: space-between;
   padding: 10px;
 
+  @include mobile {
+    padding: 5px;
+  }
+
   input {
     width: 100%;
     outline: none;
     border: none;
     color: #2f2d52;
     font-size: 16px;
+
+    @include mobile {
+      font-size: 12px;
+    }
 
     &::placeholder {
       color: #caccd1;
@@ -432,10 +588,19 @@
     align-items: center;
     gap: 10px;
 
+    @include mobile {
+      gap: 2px;
+    }
+
     svg {
       height: 24px;
+      width: 24px;
       cursor: pointer;
       color: #caccd1;
+
+      @include mobile {
+        height: 18px;
+      }
     }
 
     button {
@@ -446,6 +611,11 @@
       cursor: pointer;
       color: white;
       border-radius: 4px;
+
+      @include mobile {
+        padding: 2px 5px;
+        font-size: 12px;
+      }
     }
   }
 }
