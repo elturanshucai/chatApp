@@ -74,7 +74,7 @@ export default function Input() {
           style={{ display: "none" }}
           id='file'
           onChange={e => setImg(e.target.files[0])}
-          value={img}
+          currentValue={img}
         />
         <label htmlFor="file">
           <AddPhotoAlternateOutlined />

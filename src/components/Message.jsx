@@ -21,7 +21,7 @@ export default function Message({ message }) {
         <span>{format(timestamp)}</span>
       </div>
       <div className="messageContent">
-        <p>{message?.text}</p>
+        {message?.text.length > 0 && <p>{message.text}</p>}
         {message.img && <img src={message?.img} alt="content Image" />}
       </div>
     </div>
