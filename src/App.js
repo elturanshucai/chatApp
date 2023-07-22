@@ -9,28 +9,28 @@ import { AuthContext } from './context/AuthContext';
 
 function App() {
   const { currentUser } = useContext(AuthContext)
+  const localUser = JSON.parse(localStorage.getItem("user"))
   const ProtectedRoute = ({ children }) => {
-    if (!currentUser) {
+    if (!currentUser || !localUser) {
       return <Navigate to="/login" />
     }
-
     return children
   }
   return (
     <div className="App">
       <Router>
         <Routes>
-          <Route path='/' element={
+          <Route path="/" element={
             <ProtectedRoute>
               <Home />
             </ProtectedRoute>
           } />
         </Routes>
         <Routes>
-          <Route index path='/register' element={<Register />} />
+          <Route index path="/register" element={<Register />} />
         </Routes>
         <Routes>
-          <Route index path='/login' element={<Login />} />
+          <Route index path="/login" element={<Login />} />
         </Routes>
       </Router>
     </div>
