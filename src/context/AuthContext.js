@@ -10,6 +10,7 @@ export const AuthContextProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
+      localStorage.setItem("user", JSON.stringify(user))
     });
 
     return () => unsubscribe();
