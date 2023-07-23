@@ -10,6 +10,14 @@ export default function Search() {
   const [err, setErr] = useState(false)
 
   const handleSearch = async () => {
+    if (username.trim().length === 0) {
+      alert("İstifadəçi adını yazın")
+      return
+    }
+    else if (username.trim() === currentUser.displayName) {
+      alert("İstifadəçi sənsən")
+      return
+    }
     const usersRef = collection(db, 'users')
     const q = query(usersRef, where("displayName", "==", username))
 
@@ -21,10 +29,6 @@ export default function Search() {
     } catch (error) {
       setErr(true)
     }
-  }
-
-  const handleKey = (e) => {
-    e.code === "Enter" && handleSearch()
   }
 
   const handleClick = async () => {
@@ -66,10 +70,10 @@ export default function Search() {
       <div className="searchForm">
         <input type="text"
           placeholder='İstifadəçi axtar'
-          onKeyDown={handleKey}
           onChange={e => setUsername(e.target.value)}
           value={username}
         />
+        <button onClick={handleSearch}>Axtar</button>
       </div>
       {
         user && <div className="userChat" onClick={handleClick}>

@@ -305,7 +305,8 @@
 
   .searchForm {
     padding: 10px;
-
+    display: flex;
+    justify-content: space-between;
     @include mobile {
       padding: 5px;
     }
@@ -315,6 +316,7 @@
       background-color: transparent;
       border: none;
       color: white;
+      width: 60%;
 
       @include mobile {
         font-size: 12px;
@@ -322,6 +324,20 @@
 
       &::placeholder {
         color: lightgray;
+      }
+    }
+
+    button{
+      border: none;
+      outline: none;
+      padding: 5px;
+      background-color: white;
+      cursor: pointer;
+      border-radius: 5px;
+
+      @include mobile{
+        padding: 2px;
+        font-size: 10px;
       }
     }
   }
@@ -492,7 +508,7 @@
 
     .imageDiv {
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start;
       img {
         width: 40px;
         height: 40px;
@@ -574,6 +590,13 @@
 
   &.owner {
     flex-direction: row-reverse;
+
+    .messageInfo{
+      .imageDiv{
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
 
     .messageContent {
       align-items: flex-end;

@@ -13,6 +13,7 @@ export default function Input() {
   const [text, setText] = useState("")
   const [img, setImg] = useState(null)
 
+
   const handleSend = async () => {
     if (img) {
       const storageRef = ref(storage, uuid())
@@ -44,19 +45,37 @@ export default function Input() {
       }
     }
 
-    await updateDoc(doc(db, "userChats", currentUser.uid), {
-      [data?.chatId + ".lastMessage"]: {
-        text
-      },
-      [data?.chatId + ".date"] : serverTimestamp()
-    })
-    
-    await updateDoc(doc(db, "userChats", data.user?.uid), {
-      [data?.chatId + ".lastMessage"]: {
-        text
-      },
-      [data?.chatId + ".date"] : serverTimestamp()
-    })
+    if (img) {
+      await updateDoc(doc(db, "userChats", currentUser.uid), {
+        [data?.chatId + ".lastMessage"]: {
+          text: "photo"
+        },
+        [data?.chatId + ".date"]: serverTimestamp()
+      })
+    } else {
+      await updateDoc(doc(db, "userChats", currentUser.uid), {
+        [data?.chatId + ".lastMessage"]: {
+          text
+        },
+        [data?.chatId + ".date"]: serverTimestamp()
+      })
+    }
+
+    if (img) {
+      await updateDoc(doc(db, "userChats", data.user?.uid), {
+        [data?.chatId + ".lastMessage"]: {
+          text: "photo"
+        },
+        [data?.chatId + ".date"]: serverTimestamp()
+      })
+    } else {
+      await updateDoc(doc(db, "userChats", data.user?.uid), {
+        [data?.chatId + ".lastMessage"]: {
+          text
+        },
+        [data?.chatId + ".date"]: serverTimestamp()
+      })
+    }
 
     setText("")
     setImg(null)

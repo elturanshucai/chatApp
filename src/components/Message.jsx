@@ -8,7 +8,6 @@ export default function Message({ message }) {
   const { data } = useContext(ChatContext)
   const ref = useRef()
   const timestamp = new Date(message.date.seconds * 1000 + message.date.nanoseconds / 1000000)
-  console.log(format(timestamp))
   useEffect(() => {
     ref.current.scrollIntoView({ behaviour: "smooth" })
   }, [message])
