@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import { collection, doc, getDoc, getDocs, query, serverTimestamp, setDoc, updateDoc, where } from "firebase/firestore"
 import { db } from "../firebase"
 import { AuthContext } from "../context/AuthContext"
+import { SearchOutlined } from "@material-ui/icons"
 
 export default function Search() {
   const { currentUser } = useContext(AuthContext)
@@ -73,7 +74,7 @@ export default function Search() {
           onChange={e => setUsername(e.target.value)}
           value={username}
         />
-        <button onClick={handleSearch}>Axtar</button>
+        <button onClick={handleSearch}><SearchOutlined/></button>
       </div>
       {
         user && <div className="userChat" onClick={handleClick}>

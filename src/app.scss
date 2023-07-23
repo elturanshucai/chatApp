@@ -331,9 +331,11 @@
       border: none;
       outline: none;
       padding: 5px;
-      background-color: white;
+      background-color: transparent;
       cursor: pointer;
       border-radius: 5px;
+      color: white;
+      text-align: center;
 
       @include mobile{
         padding: 2px;
@@ -545,7 +547,6 @@
     }
 
     @include mobile {
-      max-width: 60%;
       gap: 5px;
     }
 
@@ -561,8 +562,10 @@
       }
 
       @include mobile {
-        padding: 4px 8px;
+        padding: 2px 4px;
         font-size: 12px;
+        text-overflow: clip;
+        max-width: 100px;
       }
     }
 
@@ -582,7 +585,7 @@
       }
 
       @include mobile {
-        width: 150px;
+        width: 100px;
         height: 100px;
       }
     }
